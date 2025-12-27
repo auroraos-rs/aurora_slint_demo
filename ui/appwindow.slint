@@ -10,7 +10,7 @@ export component AppWindow inherits Window {
             vertical-alignment: TextVerticalAlignment.center;
             horizontal-alignment: TextHorizontalAlignment.center;
 
-            font-size: 18px + 16px * abs(sin(360deg * animation-tick() / 3s));
+            font-size: 18px * (sin(360deg * animation-tick() / 3s) + 2);
         }
     }
 }

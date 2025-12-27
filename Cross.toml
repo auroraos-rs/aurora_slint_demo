@@ -4,5 +4,14 @@
 pre-build = [
     "dpkg --add-architecture $CROSS_DEB_ARCH",
     "apt update && apt upgrade -y",
-    "apt install libdbus-1-dev:$CROSS_DEB_ARCH libfontconfig-dev:$CROSS_DEB_ARCH libfreetype6-dev:$CROSS_DEB_ARCH -y",
+    "apt install libwayland-dev:$CROSS_DEB_ARCH libdbus-1-dev:$CROSS_DEB_ARCH libfontconfig-dev:$CROSS_DEB_ARCH libfreetype6-dev:$CROSS_DEB_ARCH -y",
+]
+
+[target.aarch64-unknown-linux-gnu]
+# Алтернативный вариант - использовать кастомный докерфайл
+# dockerfile = "./Dockerfile.armv7-unknown-linux-gnueabihf"
+pre-build = [
+    "dpkg --add-architecture $CROSS_DEB_ARCH",
+    "apt update && apt upgrade -y",
+    "apt install libwayland-dev:$CROSS_DEB_ARCH libdbus-1-dev:$CROSS_DEB_ARCH libfontconfig-dev:$CROSS_DEB_ARCH libfreetype6-dev:$CROSS_DEB_ARCH -y",
 ]

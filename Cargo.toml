@@ -5,7 +5,7 @@ edition = "2021"
 build = "build.rs"
 
 [dependencies]
-slint = { version = "1.10", default-features = false, features = [
+slint = { version = "1.14", default-features = false, features = [
     "std",
     "backend-winit-wayland",
     "renderer-winit-femtovg",
@@ -13,7 +13,7 @@ slint = { version = "1.10", default-features = false, features = [
 ] }
 
 [build-dependencies]
-slint-build = "1.10"
+slint-build = "1.14"
 
 [profile.release]
 opt-level = "s"
@@ -28,7 +28,7 @@ summary = "Slint Aurora Example"
 release = "1"
 url = "https://github.com/lmaxyz/aurora_slint_demo"
 assets = [
-    { source = "target/armv7-unknown-linux-gnueabihf/release/slint_aurora_demo", dest = "/usr/bin/com.lmaxyz.SlintAuroraDemo", mode = "755" },
+    { source = "target/release/slint_aurora_demo", dest = "/usr/bin/com.lmaxyz.SlintAuroraDemo", mode = "755" },
     { source = "rpm/com.lmaxyz.SlintAuroraDemo.desktop", dest = "/usr/share/applications/com.lmaxyz.SlintAuroraDemo.desktop", mode = "644" },
     { source = "rpm/icons/86x86/com.lmaxyz.SlintAuroraDemo.png", dest = "/usr/share/icons/hicolor/86x86/apps/com.lmaxyz.SlintAuroraDemo.png", mode = "644" },
     { source = "rpm/icons/108x108/com.lmaxyz.SlintAuroraDemo.png", dest = "/usr/share/icons/hicolor/108x108/apps/com.lmaxyz.SlintAuroraDemo.png", mode = "644" },
