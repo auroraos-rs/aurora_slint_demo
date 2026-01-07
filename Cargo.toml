@@ -8,7 +8,7 @@ build = "build.rs"
 slint = { version = "1.14", default-features = false, features = [
     "std",
     "backend-winit-wayland",
-    "renderer-winit-femtovg",
+    "renderer-skia",
     "compat-1-2",
 ] }
 

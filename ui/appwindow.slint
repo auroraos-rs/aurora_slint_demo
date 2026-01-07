@@ -1,4 +1,4 @@
-import { VerticalBox, HorizontalBox, Button } from "std-widgets.slint";
+import { VerticalBox, HorizontalBox, Button, Slider } from "std-widgets.slint";
 
 
 export component AppWindow inherits Window {
@@ -11,6 +11,13 @@ export component AppWindow inherits Window {
             horizontal-alignment: TextHorizontalAlignment.center;
 
             font-size: 18px * (sin(360deg * animation-tick() / 3s) + 2);
+            // font-size: sli.value * 1px;
         }
+
+        // sli := Slider {
+        //     minimum: 18.;
+        //     maximum: 32.;
+        //     max-height: 20px;
+        // }
     }
 }
