@@ -2,15 +2,12 @@
 
 Простое приложение, написанное с использованием фреймворка [slint](https://slint.dev).
 
-Установить приложение на эмулятор можно, запустив скрипт `deploy.sh`.
-
 <details>
-  <summary>Сриншот работы приложения на эмуляторе</summary>
-
-  ![Скриншот](screenshot.png)
+  <summary>Сриншот работы приложения на устройстве</summary>
+    
+  <img src="screenshot.png" alt="screenshot" width=400>
 </details>
 
-## Подготовка к деплою
+## Подготовка к сборке
 
-* Установить [Aurora SDK](https://developer.auroraos.ru/doc/software_development/sdk/setup)
-* Указать переменные окружения в файле `.env` (пример взять из файла `.env.template`)
+* Установить [Aurora PSDK](https://developer.auroraos.ru/doc/sdk/psdk)
