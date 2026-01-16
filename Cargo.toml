@@ -21,21 +21,6 @@ debug = false
 lto = true
 strip = true
 
-[package.metadata.generate-rpm]
-name = "com.lmaxyz.SlintAuroraDemo"
-license = "Apache-2.0"
-summary = "Slint Aurora Example"
-release = "1"
-url = "https://github.com/lmaxyz/aurora_slint_demo"
-assets = [
-    { source = "target/release/slint_aurora_demo", dest = "/usr/bin/com.lmaxyz.SlintAuroraDemo", mode = "755" },
-    { source = "rpm/com.lmaxyz.SlintAuroraDemo.desktop", dest = "/usr/share/applications/com.lmaxyz.SlintAuroraDemo.desktop", mode = "644" },
-    { source = "rpm/icons/86x86/com.lmaxyz.SlintAuroraDemo.png", dest = "/usr/share/icons/hicolor/86x86/apps/com.lmaxyz.SlintAuroraDemo.png", mode = "644" },
-    { source = "rpm/icons/108x108/com.lmaxyz.SlintAuroraDemo.png", dest = "/usr/share/icons/hicolor/108x108/apps/com.lmaxyz.SlintAuroraDemo.png", mode = "644" },
-    { source = "rpm/icons/128x128/com.lmaxyz.SlintAuroraDemo.png", dest = "/usr/share/icons/hicolor/128x128/apps/com.lmaxyz.SlintAuroraDemo.png", mode = "644" },
-    { source = "rpm/icons/172x172/com.lmaxyz.SlintAuroraDemo.png", dest = "/usr/share/icons/hicolor/172x172/apps/com.lmaxyz.SlintAuroraDemo.png", mode = "644" },
-]
-
 [patch.crates-io]
 winit = {git="https://github.com/lmaxyz/winit", branch="aurora"}
 glutin = { git = "https://github.com/lmaxyz/glutin", branch = "aurora_device_fix" }

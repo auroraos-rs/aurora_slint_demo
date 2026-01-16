@@ -1,23 +1,147 @@
-import { VerticalBox, HorizontalBox, Button, Slider } from "std-widgets.slint";
+import {
+    VerticalBox,
+    HorizontalBox,
+    Button,
+    Slider,
+    SpinBox,
+} from "std-widgets.slint";
 
 
 export component AppWindow inherits Window {
     title: "Hello from slint";
-
+    in-out property <length> font_size: 18px;
     VerticalBox {
+        alignment: LayoutAlignment.stretch;
+        Rectangle {
+            width: 100%;
+            height: 41px;
+        }
+
         Text {
             text: "Hello from slint!";
             vertical-alignment: TextVerticalAlignment.center;
             horizontal-alignment: TextHorizontalAlignment.center;
 
-            font-size: 18px * (sin(360deg * animation-tick() / 3s) + 2);
-            // font-size: sli.value * 1px;
+            // font-size: 18px * round(sin(180deg * animation-tick() / 1s));
+            font-size: 26px;
         }
 
-        // sli := Slider {
-        //     minimum: 18.;
-        //     maximum: 32.;
-        //     max-height: 20px;
-        // }
+        Rectangle {
+            background: coral;
+            vertical-stretch: 1;
+            min-height: inner.height * 2;
+            width: 100%;
+
+            global_ta := TouchArea {
+                inner := Rectangle {
+                    in-out property <bool> active: false;
+                    x: self.active ? parent.width - self.width : 0;
+                    y: self.active ? parent.height - self.height : 0;
+                    width: 15%;
+                    background: black;
+                    height: self.width;
+
+                    animate x, y {
+                        easing: ease-in;
+                        duration: 0.5s;
+                    }
+
+                    txt := Text {
+                        text: "Click me";
+                        wrap: word-wrap;
+                        width: parent.width;
+                        horizontal-alignment: center;
+                    }
+
+                    TouchArea {
+                        clicked => {
+                            parent.active = !parent.active;
+                        }
+                    }
+                }
+
+                inner2 := Rectangle {
+                    in-out property <bool> active: false;
+                    x: self.active ? 0 : parent.width - self.width;
+                    y: self.active ? parent.height - self.height : 0;
+                    background: blanchedalmond;
+                    width: 15%;
+                    height: self.width;
+
+                    animate x, y {
+                        easing: ease-in;
+                        duration: 0.5s;
+                    }
+
+                    Text {
+                        text: "Click me";
+                        color: black;
+                        wrap: word-wrap;
+                        width: parent.width;
+                        horizontal-alignment: center;
+                    }
+
+                    TouchArea {
+                        clicked => {
+                            parent.active = !parent.active;
+                        }
+                    }
+                }
+
+                inner3 := Rectangle {
+                    x: parent.width / 2 - self.width / 2;
+                    y: parent.height / 2 - self.height / 2;
+                    background: bisque;
+                    width: 15%;
+                    height: self.width;
+
+                    animate x, y {
+                        easing: ease;
+                        duration: 0.1s;
+                    }
+
+                    Text {
+                        text: "Drag me";
+                        color: black;
+                        wrap: word-wrap;
+                        width: parent.width;
+                        horizontal-alignment: center;
+                    }
+
+                    TouchArea {
+                        moved => {
+                            parent.x = global_ta.mouse-x - parent.width / 2;
+                            parent.y = global_ta.mouse-y - parent.height / 2;
+                        }
+                    }
+                }
+            }
+        }
+
+        Rectangle {
+            border-color: white.transparentize(0.7);
+            border-radius: 5px;
+            border-width: 2px;
+
+            VerticalLayout {
+                padding: 15px;
+                spacing: 10px;
+
+                fs_input := Text {
+                    text: "Font size: " + (root.font_size / 1px) + "px";
+                    font-size: root.font_size;
+                }
+
+                sli := SpinBox {
+                    minimum: 18.;
+                    maximum: 36.;
+                    value: root.font_size / 1px;
+
+                    edited(value) => {
+                        root.font_size = value * 1px;
+                    }
+                }
+            }
+        }
     }
 }
