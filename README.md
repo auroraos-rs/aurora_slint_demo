@@ -11,3 +11,4 @@
 ## Подготовка к сборке
 
 * Установить [Aurora PSDK](https://developer.auroraos.ru/doc/sdk/psdk)
+* Установить cross-rs с помощью cargo
